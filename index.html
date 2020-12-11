@@ -1,0 +1,356 @@
+<html>
+<style>
+    #info {
+        color: white;
+        font-size: 3vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #dev_name {
+        color: greenyellow;
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    #info img {
+        height: 3.5vh;
+        margin: 1vh;
+    }
+
+    #info img:hover {
+        box-shadow: 2px 2px white;
+    }
+
+    .ndd {
+        font-family: Lucida;
+        font-size: 6vh;
+
+    }
+
+    #qt {
+        color: e00d0d;
+        font-size: 7vh;
+        font-family: Florence, cursive;
+    }
+
+
+    input,
+    button {
+        margin: 1vh;
+        font-size: 4vh;
+        border-radius: 1.5vh;
+        padding: 0.5vh;
+    }
+
+    button {
+        background-color: red;
+        color: yellow;
+        border: 0.5vh solid orange;
+    }
+
+    #name1_txt {
+        background-color: cornflowerblue;
+        color: white;
+        border: 0.5vh solid blue;
+    }
+
+    #name2_txt {
+        background-color: greenyellow;
+        color: black;
+        border: 0.5vh solid green;
+    }
+
+    #nd1,
+    #nd2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #share_div {
+        display: none;
+        color: green;
+        font-size: 4vh;
+        border: 6px solid green;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 5vh;
+        align-items: center;
+        margin:1.5vh;
+    }
+
+    #share_div img {
+        height: 7vh;
+    }
+</style>
+
+<body bgcolor=black>
+
+    <center>
+
+        <div id="info">
+            <span>Developed by : </span> <span id="dev_name"> Agilan</span>
+            <a href="https://agilan-pro.web.app/"><img src="link.png"></a>
+            <a href="https://github.com/agilan2001"><img src="github-icon-png-29.jpg"></a>
+        </div>
+
+        <input id="name1_txt" type="text" placeholder="Name 1" /><br>
+        <input id="name2_txt" type="text" placeholder="Name 2" /><br>
+        <button onclick="flame_click()">FLAME 🔥</button><br>
+
+        <span class="ndd"></span>
+        <br>
+        <span id="nd1" style="color:magenta;" onClick="nd1_clk();"></span>
+        <br>
+        <span id="nd2" style="color:yellow;" onClick="nd2_clk();"></span>
+        <br>
+
+        <span id="fld" style="color:green;"></span>
+        <br><span id="qt"></span>
+        <br><span id="emg" style="font-size: 1vh;"></span>
+        <div id="share_div">
+            <span>SHARE&nbsp;&nbsp; </span>
+            <img src="whatsapp.png"
+                onclick="location.href='https://api.whatsapp.com/send?text=I have tried FLAMES with someone...%0Ahttps://agilan2001.github.io/flames?name1='+n1+'%26name2='+n2">&nbsp;
+            <img src="message_small.png"
+                onclick="location.href='sms:?&amp;body=I have tried FLAMES with someone...%0Ahttps://agilan2001.github.io/flames?name1='+n1+'%26name2='+n2"></span>
+        </div>
+    </center>
+    <br>
+    <span class="sp">&nbsp;</span>
+    <br>
+
+</body>
+<script>
+
+
+
+
+    var n1, n2, q, f1, f2;
+    var fla;
+
+    var emg_call;
+
+    var c = 0, d = 0;
+    var nab1;
+    var nab2;
+    var nda1;
+    var nda2;
+    var flda;
+    var r, td, tdp;
+    var na1;
+    var na2;
+    var ndd = document.getElementsByClassName("ndd")[0];
+    var sp = document.getElementsByClassName("sp")[0];
+
+    var url = new URLSearchParams(location.search);
+    if (n1 = url.get("name1").toUpperCase()) {
+        name1_txt.value = n1;
+        n2 = url.get("name2").toUpperCase();
+        name2_txt.value = n2;
+        if (n2 == "") {
+            name2_txt.focus();
+        }
+        else
+            init();
+
+    }
+
+
+    function flame_click() {
+        n1 = name1_txt.value.toUpperCase();
+        n2 = name2_txt.value.toUpperCase();
+        if (n1 == "") {
+            name1_txt.focus();
+            return;
+        }
+        if (n2 == "") {
+            name2_txt.focus();
+            return;
+        }
+        init();
+
+    }
+
+    function init() {
+        fla = ["F", "L", "A", "M", "E", "S"];
+        nab1 = [];
+        nda1 = [];
+        nd1.innerHTML = "";
+
+        nab2 = [];
+        nda2 = [];
+        nd2.innerHTML = "";
+        emg.innerHTML = "";
+        qt.innerHTML = "";
+
+        flda = [];
+        fld.innerHTML = "";
+        r = 0; td = 0; tdp = 0; c = 0; d = 0;
+
+        na1 = n1.split("");
+        na2 = n2.split("");
+        share_div.style.display = "none";
+
+        append();
+
+    }
+
+
+    function append() {
+        for (q = 0; q < na1.length; q++) {
+
+            if (na1[q] != " ") {
+                nda1.push(ndd.cloneNode(true));
+                nab1.push(1);
+                nda1[nda1.length - 1].innerHTML = na1[q];
+                nd1.appendChild(nda1[nda1.length - 1]);
+            } else {
+                na1.splice(q, 1);
+                q--;
+            }
+            nd1.appendChild(sp.cloneNode(true));
+        }
+
+        for (q = 0; q < na2.length; q++) {
+            if (na2[q] != " ") {
+                nda2.push(ndd.cloneNode(true));
+                nab2.push(1);
+                nda2[nda2.length - 1].innerHTML = na2[q];
+                nd2.appendChild(nda2[nda2.length - 1]);
+            } else {
+                na2.splice(q, 1);
+                q--;
+            }
+            nd2.appendChild(sp.cloneNode(true));
+        }
+
+        for (q = 0; q < fla.length; q++) {
+
+            flda.push(ndd.cloneNode(true));
+            flda[q].innerHTML = fla[q];
+            fld.appendChild(flda[q]);
+            fld.appendChild(sp.cloneNode(true));
+        }
+
+
+        f1 = setInterval(check, 500);
+
+    }
+
+    function check() {
+
+        if (qt.innerHTML == "...")
+            qt.innerHTML = "";
+        else
+            qt.innerHTML += ".";
+
+        for (d = 0; d < na2.length; d++) {
+            if (na1[c] == na2[d] && nab2[d]) {
+                nab1[c] = 0;
+                nab2[d] = 0;
+                strike(c, d);
+
+                break;
+            }
+        }
+
+        c++;
+
+        if (c == na1.length) {
+            clearInterval(f1);
+            for (p = 0; p < na1.length; p++) {
+                r += nab1[p];
+            }
+            for (p = 0; p < na2.length; p++) {
+                r += nab2[p];
+            }
+            //    rmn.innerHTML= "Remaining Letters :" + r;
+            if (r == 0) qt.innerHTML = "CANNOT FLAME"
+
+            else
+                f2 = setInterval(flame, 500);
+
+        }
+    }
+
+    function strike(x, y) {
+        //nda1[c].style.textDecoration="line-through";
+        //nda2[d].style.textDecoration="line-through";
+
+        nda1[x].style.color = "gray";
+        nda2[y].style.color = "gray";
+
+    }
+
+    function flame() {
+
+        if (qt.innerHTML == "...")
+            qt.innerHTML = "";
+        else
+            qt.innerHTML += ".";
+
+        if (fla.length == 1) {
+            clearInterval(f2);
+            flda[0].style.color = "red";
+            emg.style.fontSize = "0.1vh";
+            switch (fla[0]) {
+                case 'F':
+                    emg.innerHTML = "🙋🙋‍♂️";
+                    qt.innerHTML = "Friends Forever";
+                    break;
+                case 'L':
+                    emg.innerHTML = "💕";
+                    qt.innerHTML = "Long-Live Love";
+                    break;
+                case 'A':
+                    emg.innerHTML = "👫";
+                    qt.innerHTML = "Awesome Affinity";
+                    break;
+                case 'M':
+                    emg.innerHTML = "👰🤵";
+                    qt.innerHTML = "Married Marvels";
+                    break;
+                case 'E':
+                    emg.innerHTML = "👿";
+                    qt.innerHTML = "Extreme Enemity";
+                    break;
+                case 'S':
+                    emg.innerHTML = "🧒👧";
+                    qt.innerHTML = "Superb Sibling";
+                    break;
+
+            }
+
+            emg_call = setInterval(emg_inc, 10);
+
+            return;
+        }
+        td = (r % (fla.length) - 1 + tdp) % fla.length;
+        if (td == -1) td = fla.length - 1;
+
+        //flda[td].style.textDecoration="line-through";
+        flda[td].style.color = "gray";
+
+        fla.splice(td, 1);
+        flda.splice(td, 1);
+        tdp = td;
+    }
+    //    nda2[0].style.textDecoration="line-through";
+
+    function emg_inc() {
+        emg.style.fontSize = (parseFloat(emg.style.fontSize) + 0.1) + "vh";
+        if (parseInt(emg.style.fontSize) > 10) {
+            clearInterval(emg_call);
+
+            share_div.style.display = 'flex';
+
+        }
+    }
+
+
+</script>
+
+</html>
