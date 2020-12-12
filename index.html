@@ -102,7 +102,7 @@
 
         <input id="name1_txt" type="text" placeholder="Name 1" /><br>
         <input id="name2_txt" type="text" placeholder="Name 2" /><br>
-        <button onclick="flame_click()">FLAME 🔥</button><br>
+        <button id="flame_btn" onclick="flame_click()">FLAME 🔥</button><br>
 
         <span class="ndd"></span>
         <br>
@@ -175,6 +175,7 @@
             name2_txt.focus();
             return;
         }
+        flame_btn.disabled = true;
         init();
 
     }
@@ -273,7 +274,10 @@
                 r += nab2[p];
             }
             //    rmn.innerHTML= "Remaining Letters :" + r;
-            if (r == 0) qt.innerHTML = "CANNOT FLAME"
+            if (r == 0){
+                qt.innerHTML = "CANNOT FLAME"
+                flame_btn.disabled = false;
+            } 
 
             else
                 f2 = setInterval(flame, 500);
@@ -351,6 +355,7 @@
             clearInterval(emg_call);
 
             share_div.style.display = 'flex';
+            flame_btn.disabled = false;
 
         }
     }
