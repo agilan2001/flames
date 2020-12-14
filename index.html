@@ -2,6 +2,12 @@
 
 <head>
     <title>FLAMES 🔥</title>
+    <script>
+        function resize(){
+            document.documentElement.style.fontSize = window.innerHeight * 7.5 / 754 + "px";
+        }
+        resize();
+    </script>
 </head>
 <style>
     #info {
@@ -128,10 +134,6 @@
 
 </body>
 <script>
-
-    document.documentElement.style.fontSize = window.innerHeight * 7.5 / 754 + "px";
-
-
 
     var n1, n2, q, f1, f2;
     var fla;
@@ -360,6 +362,8 @@
 
         }
     }
+
+    setTimeout(resize,500);
 
 
 </script>
