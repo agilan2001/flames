@@ -3,7 +3,7 @@
 <head>
     <title>FLAMES 🔥</title>
     <script>
-        function resize(){
+        function resize() {
             document.documentElement.style.fontSize = window.innerHeight * 7.5 / 754 + "px";
         }
         resize();
@@ -35,7 +35,7 @@
 
     .ndd {
         font-family: Lucida;
-        font-size: 6rem;
+        font-size: 5rem;
 
     }
 
@@ -88,7 +88,8 @@
         padding: 10px;
         border-radius: 5rem;
         align-items: center;
-        margin: 2rem;
+        margin: 4rem;
+        font-weight: bold;
     }
 
     #share_div img {
@@ -209,6 +210,10 @@
 
 
     function append() {
+
+        var sp_node = sp.cloneNode(true);
+        sp_node.style.padding = "0 0.5rem";
+
         for (q = 0; q < na1.length; q++) {
 
             if (na1[q] != " ") {
@@ -219,6 +224,7 @@
             } else {
                 na1.splice(q, 1);
                 q--;
+                nd1.appendChild(sp_node.cloneNode(true));
             }
             nd1.appendChild(sp.cloneNode(true));
         }
@@ -232,6 +238,7 @@
             } else {
                 na2.splice(q, 1);
                 q--;
+                nd2.appendChild(sp_node.cloneNode(true));
             }
             nd2.appendChild(sp.cloneNode(true));
         }
@@ -277,10 +284,10 @@
                 r += nab2[p];
             }
             //    rmn.innerHTML= "Remaining Letters :" + r;
-            if (r == 0){
+            if (r == 0) {
                 qt.innerHTML = "CANNOT FLAME"
                 flame_btn.disabled = false;
-            } 
+            }
 
             else
                 f2 = setInterval(flame, 500);
@@ -363,7 +370,7 @@
         }
     }
 
-    setTimeout(resize,500);
+    setTimeout(resize, 500);
 
 
 </script>
