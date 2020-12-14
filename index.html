@@ -6,7 +6,7 @@
 <style>
     #info {
         color: white;
-        font-size: 3vh;
+        font-size: 3rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -19,8 +19,8 @@
     }
 
     #info img {
-        height: 3.5vh;
-        margin: 1vh;
+        height: 3.5rem;
+        margin: 1rem;
     }
 
     #info img:hover {
@@ -29,41 +29,41 @@
 
     .ndd {
         font-family: Lucida;
-        font-size: 6vh;
+        font-size: 6rem;
 
     }
 
     #qt {
-        color: #e00d0d;
-        font-size: 7vh;
+        color: e00d0d;
+        font-size: 7rem;
         font-family: Florence, cursive;
     }
 
 
     input,
     button {
-        margin: 1vh;
-        font-size: 4vh;
-        border-radius: 1.5vh;
-        padding: 0.5vh;
+        margin: 1rem;
+        font-size: 4rem;
+        border-radius: 1.5rem;
+        padding: 0.5rem;
     }
 
     button {
         background-color: red;
         color: yellow;
-        border: 0.5vh solid orange;
+        border: 0.5rem solid orange;
     }
 
     #name1_txt {
         background-color: cornflowerblue;
         color: white;
-        border: 0.5vh solid blue;
+        border: 0.5rem solid blue;
     }
 
     #name2_txt {
         background-color: greenyellow;
         color: black;
-        border: 0.5vh solid green;
+        border: 0.5rem solid green;
     }
 
     #nd1,
@@ -76,17 +76,17 @@
     #share_div {
         display: none;
         color: green;
-        font-size: 4vh;
+        font-size: 4rem;
         border: 6px solid green;
         width: fit-content;
         padding: 10px;
-        border-radius: 5vh;
+        border-radius: 5rem;
         align-items: center;
-        margin: 1.5vh;
+        margin: 2rem;
     }
 
     #share_div img {
-        height: 7vh;
+        height: 7rem;
     }
 </style>
 
@@ -113,7 +113,7 @@
 
         <span id="fld" style="color:green;"></span>
         <br><span id="qt"></span>
-        <br><span id="emg" style="font-size: 1vh;"></span>
+        <br><span id="emg" style="font-size: 1rem;"></span>
         <div id="share_div">
             <span>SHARE&nbsp;&nbsp; </span>
             <img src="whatsapp.png"
@@ -129,6 +129,7 @@
 </body>
 <script>
 
+    document.documentElement.style.fontSize = window.innerHeight * 7.5 / 754 + "px";
 
 
 
@@ -304,7 +305,7 @@
         if (fla.length == 1) {
             clearInterval(f2);
             flda[0].style.color = "red";
-            emg.style.fontSize = "0.1vh";
+            emg.style.fontSize = "0.1rem";
             switch (fla[0]) {
                 case 'F':
                     emg.innerHTML = "🙋🙋‍♂️";
@@ -350,7 +351,7 @@
     //    nda2[0].style.textDecoration="line-through";
 
     function emg_inc() {
-        emg.style.fontSize = (parseFloat(emg.style.fontSize) + 0.1) + "vh";
+        emg.style.fontSize = (parseFloat(emg.style.fontSize) + 0.1) + "rem";
         if (parseInt(emg.style.fontSize) > 10) {
             clearInterval(emg_call);
 
